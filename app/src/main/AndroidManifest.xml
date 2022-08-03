@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.hilt_mvvm_retrofit_coroutine">
-
+<uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".MyApp"
         android:allowBackup="true"

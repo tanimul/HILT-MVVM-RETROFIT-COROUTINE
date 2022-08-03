@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hilt_mvvm_retrofit_coroutine.databinding.ActivityMainBinding
 import com.example.hilt_mvvm_retrofit_coroutine.ui.adapter.UserViewAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     companion object {
         private const val TAG: String = "MainActivity"
@@ -38,15 +40,15 @@ class MainActivity : AppCompatActivity() {
 
         //init Viewmodel
         val viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
-//        viewModel.liveDataListObserver()
-//            .observe(this) {
-//                if (it != null) {
-//                    userViewAdapter.setDataList(it)
-//                } else {
-//                    Toast.makeText(this, "Something went wrong!", Toast.LENGTH_LONG)
-//                }
-//            }
-//        viewModel.loadLiveUserDataList("md")
+        viewModel.liveDataListObserver()
+            .observe(this) {
+                if (it != null) {
+                    userViewAdapter.setDataList(it)
+                } else {
+                    Toast.makeText(this, "Something went wrong!", Toast.LENGTH_LONG)
+                }
+            }
+        viewModel.loadLiveUserDataList("md")
 
     }
 }
